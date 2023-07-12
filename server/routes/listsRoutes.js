@@ -1,5 +1,10 @@
-const express = require("express");
+const express = require('express');
+const listsController = require('../controllers/listsController');
 const listsRouter = express.Router();
-// const listsController = require("../controllers/");
 
-listsRouter.get("/lists", () => console.log("all lists route"));
+listsRouter.get('/:id?', listsController.getLists);
+listsRouter.post('/', listsController.createList);
+// listsRouter.put('/', listsController.updateList);
+listsRouter.delete('/', listsController.deleteList);
+
+module.exports = listsRouter;
