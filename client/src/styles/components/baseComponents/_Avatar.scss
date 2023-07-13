@@ -1,5 +1,11 @@
 // @import '../../utils/';
 
-// .userAvatar {
-//   min-width: ;
-// }
+.userAvatar {
+  object-fit: cover;
+  border-radius: 50%;
+  min-width: 5.4rem;
+  min-height: 5.4rem;
+  max-width: 6.4rem;
+  max-height: 6.4rem;
+  width: 100%;
+}

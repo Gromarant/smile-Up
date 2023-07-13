@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 const Avatar = ({
-  src='https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHVzZXIlMjBhdmF0YXJ8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60', 
+  src='https://media.istockphoto.com/id/1150698661/es/foto/hombre-afroamericano-en-gafas-vr-jugando-videojuegos-con-cascos-de-realidad-virtual-tratando.jpg?s=612x612&w=0&k=20&c=D0al4YaFQ5J1VSL-S6MK4-EeMhG4pPi1dj_PFGKIUw4=', 
   alt='user avatar'
 }) => {
   return (

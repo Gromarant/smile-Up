@@ -1,7 +1,11 @@
-import React from "react";
+import Avatar from '../../baseComponents/Avatar/Avatar';
 
 const Home = () => {
-  return <div>Home</div>;
+  return (
+    <>
+      <Avatar className='userAvatar' /> 
+    </>
+  );
 };
 
 export default Home;

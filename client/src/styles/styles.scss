@@ -1,7 +1,10 @@
-//Base components
+//Base components scss
 @import './components/baseComponents/Avatar';
 
+//Components scss
 @import './components/Footer';
+@import './components/NavBar';
 @import './components/Header';
 
+//general scss
 @import './views/App';
