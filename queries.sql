@@ -17,7 +17,7 @@ CREATE TABLE products (
 );
 
 CREATE TABLE lists_products (
-  list_id int NOT NULL,
+  list_id int NOT NULL REFERENCES lists(list_id) ON DELETE CASCADE,
   product_id int NOT NULL,
   product_quantity int NOT NULL
 );
