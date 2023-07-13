@@ -11,21 +11,22 @@ const NavBar = () => {
   ];
 
   return (
-    <nav >
+    <>
       <Navbar className='navBar' isBordered>
-      <img src='../../../../public/vite.svg' alt='Logo smile-Up' />
+        <Navbar.Brand>
+          <Navbar.Toggle aria-label="toggle navigation" />
+        </Navbar.Brand>
+          <img className='navBar_logo' src='../../../../public/vite.svg' alt='Logo smile-Up' />
         <Navbar.Content enableCursorHighlight hideIn="xs" variant="underline">
-          <Link to="/">Home</Link>
+          <Link className='navBar_link' to="/">Home</Link>
         </Navbar.Content>
         <Navbar.Collapse>
           {collapseItems.map((item) => (
-            <Navbar.CollapseItem key={item.name}>
-              <Link to={item.link}>{item.name}</Link>
-            </Navbar.CollapseItem>
+              <Link to={item.link} key={item.name}>{item.name}</Link>
           ))}
         </Navbar.Collapse>
       </Navbar>
-    </nav>
+    </>
   );
 };
 

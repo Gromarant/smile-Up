@@ -1,9 +1,9 @@
-import Avatar from '../../baseComponents/Avatar/Avatar';
+// import Avatar from '../../baseComponents/Avatar/Avatar';
 
 const Home = () => {
   return (
     <>
-      <Avatar className='userAvatar' /> 
+      {/* <Avatar className='userAvatar' />  */}
     </>
   );
 };
