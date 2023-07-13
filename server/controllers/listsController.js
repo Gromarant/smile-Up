@@ -1,18 +1,19 @@
-// const lists = require{***modelo de lista***}
+const Lists = require('../models/listsModel');
 
 //[GET] PORT/lists
-//[GET] PORT/lists?id=idNumber
+//[GET] PORT/lists?name=listName
 const getLists = async(req,res) => {
 
   try {
-    let lists;
-
-    if (req.query.id) {
-      lists = await res.status(200).json(`Controller says: get the list with id: ${req.query.id}`); //model call
+    let list;
+    
+    if (req.query.name) {
+      list = await Lists.getListByName(req.query.name);
     }
     else {
-      lists = await res.status(200).json('Controller says: get your lists'); //model call
+      list = await Lists.getAllLists();
     }
+    res.status(200).json(list);
   }
   catch(error) {
     console.error(`Error: ${error}`);
@@ -75,7 +76,6 @@ const createList = async(req,res) => {
 //   try {
 //     let lists;
 //     const bodyData = req.body;
-    
     
 //     if (exist) { //name
 

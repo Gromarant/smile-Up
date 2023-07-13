@@ -1,5 +1,5 @@
-// const pool = require('../utils/db_sql'); // Conexión a la BBDD
-// const queries = require('../queries/lists.queries');
+const pool = require('../utils/db_sql'); // Conexión a la BBDD
+const queries = require('../queries/lists.queries');
 
 // GET
 const getListByName = async (name) => {
@@ -7,7 +7,7 @@ const getListByName = async (name) => {
 
   try {
       client = await pool.connect(); 
-      const data = await client.query(queries.getlistbyName, [name])
+      const data = await client.query(queries.getListByName, [name])
       result = data.rows[0]
   } 
   catch (err) {
@@ -25,9 +25,9 @@ const getAllLists = async () => {
   let client, result;
 
   try {
-      client = await pool.connect(); // Espera a abrir conexion
+      client = await pool.connect(); 
       const data = await client.query(queries.getAllLists)
-      result = data.rows
+      result = data.rows;
   } 
   catch (err) {
       console.log(err);
@@ -103,7 +103,7 @@ const deleteList = async (list) => {
 };
 
 
-const lists = {
+const List = {
   getListByName,
   getAllLists,
   createList,

@@ -18,7 +18,8 @@ CREATE TABLE products (
 
 CREATE TABLE lists_products (
   list_id int NOT NULL,
-  product_id int NOT NULL
+  product_id int NOT NULL,
+  product_quantity int NOT NULL
 );
 
 --add data
@@ -52,3 +53,11 @@ VALUES ('Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops', '109.95', 'Your
 ('MBJ Women''s Solid Short Sleeve Boat Neck V ', 9.85, '95% RAYON 5% SPANDEX, Made in USA or Imported, Do Not Bleach, Lightweight fabric with great stretch for comfort, Ribbed on sleeves and neckline / Double stitching on bottom hem', 'women''s clothing', 'https://fakestoreapi.com/img/71z3kpMAYsL._AC_UY879_.jpg'),
 ('Opna Women''s Short Sleeve Moisture', 7.95, '100% Polyester, Machine wash, 100% cationic polyester interlock, Machine Wash & Pre Shrunk for a Great Fit, Lightweight, roomy and highly breathable with moisture wicking fabric which helps to keep moisture away, Soft Lightweight Fabric with comfortable V-neck collar and a slimmer fit, delivers a sleek, more feminine silhouette and Added Comfort', 'women''s clothing', 'https://fakestoreapi.com/img/51eg55uWmdL._AC_UX679_.jpg'),
 ('DANVOUY Womens T Shirt Casual Cotton Short', 12.99, '95%Cotton,5%Spandex, Features: Casual, Short Sleeve, Letter Print,V-Neck,Fashion Tees, The fabric is soft and has some stretch., Occasion: Casual/Office/Beach/School/Home/Street. Season: Spring,Summer,Autumn,Winter.', 'women''s clothing', 'https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg');
+
+
+INSERT INTO Lists_products (list_id, product_id, product_quantity)
+  VALUES ('1', '3', '1'),
+  ('1', '1', '4'),
+  ('1', '4', '2'),
+  ('1', '16', '1'),
+  ('2', '20', '5');
