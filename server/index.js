@@ -2,13 +2,15 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const helmet = require('helmet');
+const cors = require('cors');
 
-const PORT = 3000;
+const PORT = 3001;
 
 const listRoutes = require('./routes/listsRoutes');
 const productsRoutes = require('./routes/productsRoutes');
 
 app.use(express.json());
+app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(helmet());
 
