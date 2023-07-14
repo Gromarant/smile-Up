@@ -17,37 +17,22 @@ const getLists = async(req,res) => {
   }
   catch(error) {
     console.error(`Error: ${error}`);
+    res.status(400).json({
+      msj: `ERROR: ${error}`
+    });
   }
 };
 
-const allLists = [
-  {
-    "name": "Regalos de cumple",
-    "id": 1
-  },
-  {
-    "name": "Viaje a Alicante",
-    "id": 2
-  },
-  {
-    "name": "Cosas para los peques",
-    "id": 3
-  },
-  {
-    "name": "Hobbies",
-    "id": 3
-  },
-];
 
-const listNameAlredyExists = (lists, listNameToCompare) => {
-  return lists.some(list => list.name?.toLowerCase() === listNameToCompare?.toLowerCase())
-};
+// const listNameAlredyExists = (lists, listNameToCompare) => {
+//   return lists.some(list => list.name?.toLowerCase() === listNameToCompare?.toLowerCase())
+// };
 
 //[POST] PORT/lists
 const createList = async(req,res) => {
+  let lists;
   
   try {
-    let lists;
     const bodyData = req.body;
 
     if (!bodyData.name) {

@@ -8,7 +8,7 @@ const getListByName = async (name) => {
   try {
       client = await pool.connect(); 
       const data = await client.query(queries.getListByName, [name])
-      result = data.rows[0]
+      result = data.rows;
   } 
   catch (err) {
       console.log(err);
@@ -17,7 +17,7 @@ const getListByName = async (name) => {
   finally {
       client.release();
   };
-  return result
+  return result;
 };
 
 
@@ -103,10 +103,12 @@ const deleteList = async (list) => {
 };
 
 
-const List = {
+const Lists = {
   getListByName,
   getAllLists,
   createList,
   updateList,
   deleteList
 }
+
+module.exports = Lists;
