@@ -1,0 +1,23 @@
+@import '../../utils/mixins.scss';
+
+main {
+  @include flexCol;
+  justify-content: space-between;
+  align-items: center;
+  gap: 3rem;
+  margin-top: 3rem;
+
+  .userList_section {
+    @include flexWrap;
+    place-content: center;
+    gap: 2.4rem;
+    width: 100%;
+    margin-bottom: 3rem;
+  }
+
+  h4 {
+    // text-align: center;
+    margin: auto;
+    overflow-wrap: break-word;
+  }
+}

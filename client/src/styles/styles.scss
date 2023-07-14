@@ -5,6 +5,10 @@
 @import './components/Footer';
 @import './components/NavBar';
 @import './components/Header';
+@import './components/baseComponents/Card';
+
+//Components/pages scss
+@import './components/pages/Home';
 
 //general scss
 @import './views/App';

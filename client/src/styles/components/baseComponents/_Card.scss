@@ -1,0 +1,17 @@
+@import '../../utils/variables.scss';
+
+.card {
+  min-width: 15rem;
+  width: 100%;
+  max-width: 15rem;
+  padding: 0;
+  background-color: transparent;
+  
+  .card_F_layer {
+    border-radius: 0.2rem;
+    min-height: 9rem;
+    place-content: center;
+    background-color: $card-color;
+    color: $gray-color;
+  }
+}
