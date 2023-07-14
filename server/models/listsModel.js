@@ -1,4 +1,4 @@
-const pool = require('../utils/db_sql'); // Conexión a la BBDD
+const pool = require('../utils/db_sql'); 
 const queries = require('../queries/lists.queries');
 
 // GET
@@ -61,15 +61,39 @@ const createList = async (list) => {
 };
 
 
+const buildInsertProductsQuery = () => {
+    
+}
+
 //UPDATE
 const updateList = async (list) => {
   const { name, newName, products } = list;
   let client, result;
 
   try {
-      client = await pool.connect(); // Espera a abrir conexion
-      const data = await client.query(queries.updateList, [name, newName, products])
-      result = data.rowCount
+      client = await pool.connect();
+
+    console.log('---- Ejecutando :updateListName');
+    await client.query(queries.updateListName, [newName, name])
+    console.log('---- Ejecutado :updateListName');
+    console.log('---- Ejecutando :deleteListProducts');
+    await client.query(queries.deleteListProducts, [newName])
+    console.log('---- Ejecutado :deleteListProducts');
+      
+      if(products.length) {
+        console.log('---- Ejecutando :insertNewProducts');
+        await Promise.all(products.map(product => {
+            const insert_product = {
+                // give the query a unique name
+                name: 'insert-product',
+                text: queries.insertNewProducts,
+                values: [newName, product.title, product.product_quantity],
+              }
+            return client.query(insert_product)
+        }))
+        console.log('---- Ejecutado :insertNewProducts');
+    
+    }
   } 
   catch (err) {
       console.log(err);
@@ -88,8 +112,8 @@ const deleteList = async (list) => {
   let client, result;
 
   try {
-      client = await pool.connect(); // Espera a abrir conexion
-      const data = await client.query(queries.deleteAuthor,[email])
+      client = await pool.connect();
+      const data = await client.query(queries.deleteList,[name])
       result = data.rowCount
   } 
   catch (err) {

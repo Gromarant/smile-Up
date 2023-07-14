@@ -14,7 +14,17 @@ const queries = {
   createList: `
   INSERT INTO Lists (name) 
   VALUES ($1)`,
-  updateList: `
+  updateListName: `
+  UPDATE lists
+    SET name=$1
+    WHERE name ilike $2;`,
+  deleteListProducts:
+  `DELETE FROM lists_products
+      WHERE list_id = (SELECT list_id FROM lists WHERE name ilike $1);`,
+  insertNewProducts:`
+  INSERT INTO lists_products (list_id, product_id, product_quantity)
+    VALUES ((SELECT list_id FROM lists WHERE name ILIKE $1), (SELECT product_id FROM products WHERE title ILIKE $2), $3)`,
+  updateListOld: `
   UPDATE lists
     SET name=$1
     WHERE name ilike $2;
@@ -22,7 +32,7 @@ const queries = {
       WHERE list_id = (SELECT list_id FROM lists WHERE name ilike $3);
   INSERT INTO lists_products (list_id, product_id, product_quantity)
   VALUES ((SELECT list_id FROM lists WHERE name ilike $4),
-         (SELECT product_id FROM products WHERE title ilike $5), 2);`,
+         (SELECT product_id FROM products WHERE title ilike $5), $6);`,
   deleteList: `
   DELETE FROM public.lists
 	WHERE name ILIKE $1`

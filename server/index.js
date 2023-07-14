@@ -15,7 +15,6 @@ app.use(helmet());
 
 app.use('/lists', listRoutes);
 app.use('/products', productsRoutes);
-// app.use('/', (req,res) => res.send('Aquí se cumplen tus deseos ===> redireccionar a otra página'));
 
 
 app.listen(PORT, () => {
