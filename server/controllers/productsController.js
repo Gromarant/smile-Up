@@ -6,8 +6,8 @@ const getProducts = async (req, res) => {
   try {
     let response;
 
-    if (req.query.id === 256) {
-      response = await res.send(`Controller says: get the product with id: ${req.query.id}`);
+    if (req.query.name === 'popo') {
+      response = await res.send(`Controller says: get the product with id: ${req.query.name}`);
     }
     else {
       response = await res.send('Controller says: get your products');
