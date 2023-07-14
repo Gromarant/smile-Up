@@ -17,11 +17,12 @@ const queries = {
   updateList: `
   UPDATE lists
     SET name=$1
-    WHERE name ilike $2,
+    WHERE name ilike $2;
   DELETE FROM lists_products
-      WHERE list_id IN (SELECT list_id FROM lists WHERE name=$3),
-  INSERT INTO lists_products (title, price, description, category, image)
-  VALUES ($4, $5, $6, $7, $8);`,
+      WHERE list_id = (SELECT list_id FROM lists WHERE name ilike $3);
+  INSERT INTO lists_products (list_id, product_id, product_quantity)
+  VALUES ((SELECT list_id FROM lists WHERE name ilike $4),
+         (SELECT product_id FROM products WHERE title ilike $5), 2);`,
   deleteList: `
   DELETE FROM public.lists
 	WHERE name ILIKE $1`
