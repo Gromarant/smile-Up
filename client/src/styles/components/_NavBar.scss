@@ -1,10 +1,12 @@
 @import '../utils/variables.scss';
 
 .navBar {
-  // background-color: transparent;
   background-color: $primary-color;
 
   .navBar_link {
     color: #6a6969;
+  }
+  .transparent {
+    background-color: transparent;
   }
 }

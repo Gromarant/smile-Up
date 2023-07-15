@@ -1,14 +1,18 @@
 import Avatar from '../../baseComponents/Avatar/Avatar';
 import Card from '../../baseComponents/Card/Card';
 import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 const Home = () => {
   const [lists, setlists] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3001/lists')
-      .then(response => response.json())
-      .then(data => setlists(data))
+    axios.get('http://localhost:3001/lists')
+      .then(response => {
+         if (response) {
+            setlists(response.data)
+         }
+      });
       
   }, [])
 

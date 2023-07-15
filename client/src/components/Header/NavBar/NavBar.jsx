@@ -3,9 +3,24 @@ import { Link } from 'react-router-dom';
 
 const NavBar = () => {  
 
-  const collapseItems = [
+  const linksNavBar = [
     {
-      name: "Home",
+      name: "Mis Listas",
+      link: "/",
+    },
+    {
+      name: "Buscar",
+      link: "/search",
+    }
+  ];
+
+  const linksCollapse = [
+    {
+      name: "Mis Listas",
+      link: "/",
+    },
+    {
+      name: "Busca",
       link: "/",
     }
   ];
@@ -17,11 +32,13 @@ const NavBar = () => {
           <Navbar.Toggle aria-label="toggle navigation" />
         </Navbar.Brand>
           <img className='navBar_logo' src='../../../../public/vite.svg' alt='Logo smile-Up' />
-        <Navbar.Content enableCursorHighlight hideIn="xs" variant="underline">
-          <Link className='navBar_link' to="/">Home</Link>
+        <Navbar.Content hideIn="xs">
+          {linksNavBar.map((item) => (
+              <Link className='navBar_link' to={item.link} key={item.name} >{item.name}</Link>
+          ))}
         </Navbar.Content>
         <Navbar.Collapse>
-          {collapseItems.map((item) => (
+          {linksCollapse.map((item) => (
               <Link to={item.link} key={item.name}>{item.name}</Link>
           ))}
         </Navbar.Collapse>
