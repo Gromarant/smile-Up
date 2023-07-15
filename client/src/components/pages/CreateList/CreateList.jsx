@@ -1,17 +1,17 @@
 import { useState } from 'react';
 import Avatar from '../../baseComponents/Avatar/Avatar';
-// import Card from '../../baseComponents/Card';
+import Card from '../../baseComponents/Card';
 import FormCreateList from '../../baseComponents/FormCreateList';
 
 const CreateList = () => {
-  const [inputValue, setInputValue] = useState('');
+  const [cardName, setCardName] = useState('');
 
   return (
     <>
       <Avatar className='userAvatar' /> 
       <p className='userEmail'>LuisR@gmail.com</p>
-      <FormCreateList />
-      {/* <Card /> */}
+      <FormCreateList setCardName={setCardName}/>
+      <Card content={{'name': cardName}}/>
     </>
   );
 };

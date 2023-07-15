@@ -9,4 +9,7 @@
   .transparent {
     background-color: transparent;
   }
+  .collapse {
+    @include flexCol;
+  }
 }

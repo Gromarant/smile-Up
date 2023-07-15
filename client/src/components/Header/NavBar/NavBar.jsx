@@ -24,8 +24,12 @@ const NavBar = () => {
       link: "/",
     },
     {
-      name: "Busca",
-      link: "/",
+      name: "Crear Listas",
+      link: "/create",
+    },
+    {
+      name: "Buscar",
+      link: "/search",
     }
   ];
 
@@ -41,7 +45,7 @@ const NavBar = () => {
               <Link className='navBar_link' to={item.link} key={item.name} >{item.name}</Link>
           ))}
         </Navbar.Content>
-        <Navbar.Collapse>
+        <Navbar.Collapse className='collapse'>
           {linksCollapse.map((item) => (
               <Link to={item.link} key={item.name}>{item.name}</Link>
           ))}
