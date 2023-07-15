@@ -1,14 +1,14 @@
-// const pool = require('../utils/db_sql'); // Conexión a la BBDD
-// const queries = require('../queries/poducts.queries');
+const pool = require('../utils/db_sql');
+const queries = require('../queries/poducts.queries');
 
 // GET
-const getproductById = async (name) => {
+const getProductByTitle = async (title) => {
   let client, result;
 
   try {
       client = await pool.connect(); 
-      const data = await client.query(queries.getproductById, [name])
-      result = data.rows[0]
+      const data = await client.query(queries.getProductByTitle, [title]);
+      result = data.rows[0];
   } 
   catch (err) {
       console.log(err);
@@ -25,9 +25,9 @@ const getAllProducts = async () => {
   let client, result;
 
   try {
-      client = await pool.connect(); // Espera a abrir conexion
-      const data = await client.query(queries.getAllProducts)
-      result = data.rows
+      client = await pool.connect(); 
+      const data = await client.query(queries.getAllproducts);
+      result = data.rows;
   } 
   catch (err) {
       console.log(err);
@@ -38,3 +38,29 @@ const getAllProducts = async () => {
   };
   return result
 };
+
+const getProductByCategory = async (category) => {
+    let client, result;
+  
+    try {
+        client = await pool.connect(); 
+        const data = await client.query(queries.getProductByCategory, [category]);
+        result = data.rows[0];
+    } 
+    catch (err) {
+        console.log(err);
+        throw err;
+    } 
+    finally {
+        client.release();
+    };
+    return result
+  };
+
+const Products = {
+    getProductByTitle,
+    getAllProducts,
+    getProductByCategory,
+};
+
+module.exports = Products;

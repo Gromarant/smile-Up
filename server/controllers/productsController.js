@@ -1,20 +1,27 @@
-// const products = require('***modelo de producto***')
+const Products = require('../models/productsModel')
 
 //GET PORT/products
 //GET PORT/products?id=idNumber
 const getProducts = async (req, res) => {
   try {
-    let response;
+    let product;
 
-    if (req.query.name === 'popo') {
-      response = await res.send(`Controller says: get the product with id: ${req.query.name}`);
+    if (req.query.title) {
+      product = await Products.getProductByTitle(req.query.title);
+    }
+    else if (req.query.category) {
+      product = await Products.getProductByCategory(req.query.category);
     }
     else {
-      response = await res.send('Controller says: get your products');
+      product = await Products.getAllProducts();
     }
+    res.status(200).json(product);
   }
   catch(error) {
-    console.error(error);
+    console.error(`Error: ${error}`);
+    res.status(400).json({
+      msj: `ERROR: ${error}`
+    });
   }
 }
 
