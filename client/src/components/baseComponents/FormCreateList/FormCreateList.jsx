@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 import axios from 'axios';
@@ -10,7 +11,7 @@ const FormCreateList = ({setCardName}) => {
   const [inputValue, setInputValue] = useState('');
   const { register, handleSubmit, formState: { errors } } = useForm({...defaultValues});
 
-
+  
   const onSubmit = data => {
     axios.post('http://localhost:3001/lists', {
       name: data.listName
@@ -24,15 +25,12 @@ const FormCreateList = ({setCardName}) => {
     });
   };
   
-  const handleChange = (event) => {
-    setInputValue(event.target.value);
+  const handleClick = () => {
+    setInputValue('');
   };
 
-  const handleClick = () => {
-    // if (inputValue) {
-    //   setCardName()
-    // }
-    setInputValue('')
+  const handleChange = (event) => {
+    setInputValue(event.target.value);
   };
 
   
@@ -54,6 +52,10 @@ const FormCreateList = ({setCardName}) => {
       <Button className='createList_btn' text='Crear lista' onPress={handleClick}/>
     </form>
   );
+};
+
+FormCreateList.propTypes = {
+  setCardName: PropTypes.string,
 };
 
 export default FormCreateList;

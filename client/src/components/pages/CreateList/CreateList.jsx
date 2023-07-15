@@ -4,7 +4,7 @@ import Card from '../../baseComponents/Card';
 import FormCreateList from '../../baseComponents/FormCreateList';
 
 const CreateList = () => {
-  const [cardName, setCardName] = useState('');
+  const [cardName, setCardName] = useState('Lista nueva');
 
   return (
     <>

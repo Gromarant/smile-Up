@@ -45,10 +45,7 @@ const Card = ({content}) => {
     </>
   );
 };
- // <article>
-    //   <h1>{title}</h1>
-    //   <img src={image} alt={alt} />
-    // </article>
+
 
 Card.propTypes = {
   content: PropTypes.object,
