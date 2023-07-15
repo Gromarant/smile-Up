@@ -1,12 +1,6 @@
 @import '../../utils/mixins.scss';
 
 main {
-  @include flexCol;
-  justify-content: space-between;
-  align-items: center;
-  gap: 3rem;
-  margin-top: 3rem;
-
   .userList_section {
     @include flexWrap;
     place-content: center;

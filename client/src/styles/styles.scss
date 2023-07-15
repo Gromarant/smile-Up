@@ -1,14 +1,18 @@
-//Base components scss
+//Basecomponents scss
 @import './components/baseComponents/Avatar';
+@import './components/baseComponents/FormCreateList';
+// @import './components/baseComponents/Modal';
+@import './components/baseComponents/Card';
+@import './components/baseComponents/Button';
 
 //Components scss
 @import './components/Footer';
 @import './components/NavBar';
 @import './components/Header';
-@import './components/baseComponents/Card';
 
 //Components/pages scss
 @import './components/pages/Home';
+@import './components/pages/CreateList';
 
 //general scss
 @import './views/App';

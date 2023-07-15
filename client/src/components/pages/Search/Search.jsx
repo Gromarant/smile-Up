@@ -1,8 +1,10 @@
+import Avatar from '../../baseComponents/Avatar/Avatar';
 
 const Search = () => {
   return (
     <>
-      Search
+      <Avatar className='userAvatar' /> 
+      <p>LuisR@gmail.com</p>
     </>
   );
 };

@@ -1,0 +1,21 @@
+@import '../../utils/mixins.scss';
+@import '../../utils/variables.scss';
+
+.form_createList {
+  @include flexCol;
+  gap: 1rem;
+
+  input {
+    min-width: 15rem;
+    width: 100%;
+    max-width: 25rem;
+    height: 2.6rem;
+    padding: 1rem;
+    border-radius: 0.2rem;
+    border: solid 0.02rem $gray-color;
+  }
+  .action_btn {
+    width: 60%;
+    margin: auto;
+  }
+}

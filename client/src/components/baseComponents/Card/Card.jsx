@@ -1,4 +1,4 @@
-import { Card as CardNextUi, Grid, Text, Spacer, Button } from "@nextui-org/react";
+import { Card as CardNextUi, Grid, /*Text, Spacer, Button*/ } from "@nextui-org/react";
 import PropTypes from 'prop-types';
 
 

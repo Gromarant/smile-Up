@@ -1,7 +1,39 @@
-import React from "react";
+import PropTypes from 'prop-types';
+import { Input as InputNextUi, Grid } from "@nextui-org/react";
 
-const Input = () => {
-  return <div>Input</div>;
+
+const Input = (props) => {
+  const {
+    label,
+    placeholder,
+    value,
+  } = props;
+
+
+  return (
+    <>
+      <Grid>
+        <InputNextUi 
+          { ...props }
+          rounded
+          bordered
+          label={label}
+          placeholder={placeholder}
+          value={value}
+        />
+      </Grid>
+    </>
+  );
 };
 
-export default Input;
+Input.propTypes = {
+  label: PropTypes.string,
+  labelPlaceholder: PropTypes.string,
+  placeholder: PropTypes.string,
+  color: PropTypes.string,
+  status: PropTypes.string,
+  value: PropTypes.string,
+  onChange: PropTypes.func,
+}
+
+export default InputNextUi;

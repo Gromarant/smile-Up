@@ -9,6 +9,10 @@ const NavBar = () => {
       link: "/",
     },
     {
+      name: "Crear Listas",
+      link: "/create",
+    },
+    {
       name: "Buscar",
       link: "/search",
     }

@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 const Button = ({text}) => {
   return (
-    <button>{text}</button>
+    <button className='action_btn' type='submit'>{text}</button>
   );
 };
 
