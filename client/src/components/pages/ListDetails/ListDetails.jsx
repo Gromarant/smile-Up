@@ -1,34 +1,83 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import { BsPencil } from "react-icons/bs";
 import Avatar from '../../baseComponents/Avatar/Avatar';
 import ProductListCard from '../../baseComponents/ProductListCard/ProductListCard';
 import axios from 'axios';
+import Button from '../../baseComponents/Button/Button';
 
 
 const ListDetails = () => {
-  const [listData, setListData] = useState([])
   const { name } = useParams();
+  const [listData, setListData] = useState([])
+  const [listName, setListName] = useState('');
+  const [isInputRendered, setIsInputRendered] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
 
     axios.get(`http://localhost:3001/lists?name=${name}`)
         .then(response => {
-          console.log(response.data);
           setListData(response.data);
         })
         .catch(error => console.error(error));
   }, [name])
   
+  const handleChange = (e) => {
+    e.preventDefault();
+    setListName(e.target.value);
+  }
+
+  const renderFormEdition = () => setIsInputRendered(true);
+
+  const closeFormEdition = () => {
+    setListName('');
+    setIsInputRendered(false);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    axios.put('http://localhost:3001/lists', {
+            name: name,
+            newName: listName
+          })
+          .then((response) => {
+            console.log(response);
+            navigate(`/lists/${listName}`);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+    setListName('');
+    closeFormEdition();
+  }
+
+  const sendData = () => {
+    handleSubmit();
+  };
+
+  const goToEdit = () => navigate(`/lists/${name}/edit`);
 
   return (
     <>
       <Avatar className='userAvatar' /> 
-      <section className='list_header'>
-        <p className='section_Name'>Detalles de lista:</p>
-        <h2 className='list_name'>{name}</h2>
+      <p className='section_Name'>Detalles de lista:</p>
+      <section className='list_content'>
+        <section className='list_header'>
+          <h2 className='list_name'>{name}</h2>
+          <BsPencil className='edit_btn' onClick={renderFormEdition}/>
+          <button className='goToEdit_btn' onClick={goToEdit}>Buscar Productos</button>
+        </section>
+        {isInputRendered && <form className='EditList_form' onSubmit={handleSubmit}>
+          <input onChange={handleChange} type='text' placeholder={name} value={listName}/>
+          <Button text='Guardar' onClick={sendData} />
+          <button className='danger_btn' onClick={closeFormEdition}>Cancelar</button>
+        </form>
+        }
       </section>
       <section className='products_section'>
-        {listData && listData.map(list => <ProductListCard content={list} key={`cBcR${list.name}`}/>)}
+        {listData && listData.map(data => <ProductListCard content={data} key={`cBcR${data.title}`}/>)}
       </section>
     </>
   );

@@ -1,17 +1,47 @@
 @import '../../utils/mixins.scss';
+@import '../../utils/variables.scss';
 
-.list_header {
+.list_content {
   width: 100%;
 
-  .list_name {
-    display: inline-block;
+  .list_header {
+    display: flex;
+    place-content: center;
     width: 100%;
     padding: 1rem;
     background-color: #f7f2fd;
     padding: 0.4rem;
     color: #8c8a8c;
   }
+
+  .EditList_form {
+    margin-top: 1rem;
+  }
+
+  .edit_btn {
+    height: 1.4rem;
+    border: 0.01rem;
+    width: 4.8rem;
+  }
+
+  .danger_btn {
+    border: solid 0.1rem $danger-color;
+    color: $gray-color;
+  }
 }
+
+.EditList_form {
+  display: flex;
+  place-content: center;
+  gap: 1rem;
+
+  input {
+    @include inputStyle;
+    max-width: 15rem;
+  }
+}
+
+
 
 .products_section {
   @include flexWrap;

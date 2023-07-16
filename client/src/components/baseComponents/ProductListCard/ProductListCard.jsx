@@ -15,7 +15,7 @@ const ProductListCard = ({content}) => {
           <Grid.Container>
             <Grid xs={12}>
               <p className='productList_title'>
-                {content.name ? content.name : content.title}
+                {content.title}
               </p>
             </Grid>
           </Grid.Container>

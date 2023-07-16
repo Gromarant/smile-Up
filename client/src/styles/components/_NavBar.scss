@@ -2,12 +2,14 @@
 
 .navBar {
   background-color: $primary-color;
+  width: 100vw;
 
   .navBar_link {
     color: #6a6969;
   }
   .transparent {
     background-color: transparent;
+    width: 100vw;
   }
   .collapse > ul {
     @include flexCol;

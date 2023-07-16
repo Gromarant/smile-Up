@@ -20,6 +20,7 @@ const FormSearch = ({setSearchresults}) => {
           .catch(function (error) {
             console.log(error);
           });
+    setInputValue('');
   };
 
   const handleClick = () => {

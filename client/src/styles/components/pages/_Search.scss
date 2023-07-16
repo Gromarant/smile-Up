@@ -1,5 +1,31 @@
 @import '../../utils/mixins.scss';
 
+.aside_plus_search {
+  display: flex;
+  width: 100%;
 
- 
+  .aside_ListProducts {
+    @include flexCol;
+    background-color: #dbd9d9;
+    gap: 1.4rem;
+    padding: 2rem;
+    flex-direction: column;
+  }
+
+  .productsFound_section {
+    @include flexCol;
+    width: 100%;
+    padding-left: 1rem;
+    background-color: #fbfaf8;
+    
+    h3 {
+      padding-top: 1rem;
+      color: $purple-color;
+    }
+
+    .result_products {
+      @include flexWrap;
+    }
+  }
+}
 

@@ -3,12 +3,15 @@
 
 .productSearch_card {
   @include cardStyle;
-  max-width: 13rem;
   min-width: 10rem;
+  max-width: 13rem;
+  min-height: 15rem;
+  max-height: 25rem;
   padding: 1rem;
   
   .productSearch_layer {
     @include cardLayer;
+    height: 100%;
   }
 
   .productSearch_img {
@@ -24,11 +27,20 @@
     margin: auto;
   }
 
-  .productSearch_description {
-    background-color: $primary-color;
+  .productSearch_info {
+    background-color: $secondary-color;
     padding: 0.6rem;
+
     p {
       color: $light-font;
     }
+     svg {
+      color: $danger-color;
+      background-color: #d6f4f3;
+      border-radius: 0.4rem;
+      width: 2.4rem;
+      height: 2.4rem;
+      padding: 0.4rem;
+     }
   }
 }

@@ -1,5 +1,5 @@
 import Avatar from '../../baseComponents/Avatar/Avatar';
-import { BsPlusCircle, BsArrowUpCircleFill } from 'react-icons/bs';
+import { BsPlusCircle, /*BsArrowUpCircleFill*/ } from 'react-icons/bs';
 import ListCard from '../../baseComponents/ListCard/ListCard';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -8,7 +8,7 @@ import axios from 'axios';
 const Home = () => {
   const [lists, setlists] = useState([]);
 
-  console.log(lists);
+  
   useEffect(() => {
     axios.get('http://localhost:3001/lists')
       .then(response => {

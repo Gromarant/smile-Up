@@ -12,6 +12,7 @@ const Main = () => {
         <Route path='/create' element={<CreateList />} />
         <Route path='/search' element={<Search />} />
         <Route path='/lists/:name' element={<ListDetails />} />
+        <Route path='/lists/:name/edit' element={<Search />} />
       </Routes>
     </main>
   );
