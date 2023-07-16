@@ -6,7 +6,7 @@ const getProductByTitle = async (title) => {
   let client, result;
 
   try {
-      client = await pool.connect(); 
+      client = await pool.connect();
       const data = await client.query(queries.getProductByTitle, [title]);
       result = data.rows[0];
   } 
