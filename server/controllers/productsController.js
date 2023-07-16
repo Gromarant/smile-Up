@@ -10,8 +10,6 @@ const getProducts = async (req, res) => {
       product = await Products.getProductByTitle(req.query.title);
     }
     else if (req.query.category) {
-      console.log("getProductByCategory");
-      console.log(req.query.category);
       product = await Products.getProductByCategory(req.query.category);
     }
     else {

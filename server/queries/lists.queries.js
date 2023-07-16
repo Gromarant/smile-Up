@@ -1,6 +1,6 @@
 const queries = {
   getListByName: `
-  SELECT l.name, p.title, p.price, p.description, p.category, p.image, lp.product_quantity
+  SELECT l.name, l.list_id,  p.product_id, p.title, p.price, p.description, p.category, p.image, lp.product_quantity
   FROM lists as l
       INNER JOIN lists_products as lp
           ON lp.list_id = l.list_id

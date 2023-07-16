@@ -8,7 +8,7 @@ const getProductByTitle = async (title) => {
   try {
       client = await pool.connect();
       const data = await client.query(queries.getProductByTitle, [title]);
-      result = data.rows[0];
+      result = data.rows;
   } 
   catch (err) {
       console.log(err);
@@ -45,7 +45,7 @@ const getProductByCategory = async (category) => {
     try {
         client = await pool.connect(); 
         const data = await client.query(queries.getProductByCategory, [category]);
-        result = data.rows[0];
+        result = data.rows;
     } 
     catch (err) {
         console.log(err);
