@@ -55,10 +55,9 @@ const updateList = async(req,res) => {
   try {
     const bodyData = req.body;
     if (bodyData.name) {
-      if (!bodyData.newName) {
-        bodyData.newName = bodyData.name;
+      if (bodyData.name && bodyData.newName) {
+        lists = await Lists.updateListName(bodyData);
       }
-      lists = await Lists.updateList(bodyData);
 
       res.status(200).json({
         message: `Lista ${bodyData.name} actualizada`
@@ -73,7 +72,25 @@ const updateList = async(req,res) => {
   }
 };
 
+//[PUT] PORT/lists
+const updateListProducts = async(req,res) => {
+  let lists;
 
+  try {
+    const bodyData = req.body;
+    lists = await Lists.updateListProducts(bodyData);
+
+    res.status(200).json({
+      message: `Lista actualizada`
+    });
+  }
+  catch(error) {
+    console.log(error),
+    res.status(400).json({
+      msj: `${error}`
+    });
+  }
+};
 
 //[DELETE] PORT/lists
 const deleteList = async(req,res) => {
@@ -95,5 +112,6 @@ module.exports = {
   getLists,
   createList,
   updateList,
+  updateListProducts,
   deleteList,
 }

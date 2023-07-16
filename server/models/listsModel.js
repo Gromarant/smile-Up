@@ -66,32 +66,44 @@ const buildInsertProductsQuery = () => {
 }
 
 //UPDATE
-const updateList = async (list) => {
+const updateListName = async (list) => {
   const { name, newName, products } = list;
   let client, result;
 
   try {
       client = await pool.connect();
 
-    console.log('---- Ejecutando :updateListName');
     await client.query(queries.updateListName, [newName, name])
-    console.log('---- Ejecutado :updateListName');
-    console.log('---- Ejecutando :deleteListProducts');
-    await client.query(queries.deleteListProducts, [newName])
-    console.log('---- Ejecutado :deleteListProducts');
+  } 
+  catch (err) {
+      console.log(err);
+      throw err;
+  } 
+  finally {
+      client.release();
+  };
+  return result
+};
+
+//UPDATE
+const updateListProducts = async (list) => {
+  const { name, products } = list;
+  let client, result;
+
+  try {
+      client = await pool.connect();
+    await client.query(queries.deleteListProducts, [name])
       
       if(products.length) {
-        console.log('---- Ejecutando :insertNewProducts');
         await Promise.all(products.map(product => {
             const insert_product = {
                 // give the query a unique name
                 name: 'insert-product',
                 text: queries.insertNewProducts,
-                values: [newName, product.title, product.product_quantity],
+                values: [name, product.title, product.product_quantity],
               }
             return client.query(insert_product)
         }))
-        console.log('---- Ejecutado :insertNewProducts');
     
     }
   } 
@@ -131,7 +143,8 @@ const Lists = {
   getListByName,
   getAllLists,
   createList,
-  updateList,
+  updateListName,
+  updateListProducts,
   deleteList
 }
 
