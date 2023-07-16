@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Avatar from '../../baseComponents/Avatar/Avatar';
-import Card from '../../baseComponents/Card';
+import ListCard from '../../baseComponents/ListCard';
 import FormCreateList from '../../baseComponents/FormCreateList';
 
 const CreateList = () => {
@@ -9,9 +9,9 @@ const CreateList = () => {
   return (
     <>
       <Avatar className='userAvatar' /> 
-      <p className='userEmail'>LuisR@gmail.com</p>
+      <p className='section_Name'>Crear nueva lista</p>
       <FormCreateList setCardName={setCardName}/>
-      <Card content={{'name': cardName}}/>
+      <ListCard content={{'name': cardName}}/>
     </>
   );
 };

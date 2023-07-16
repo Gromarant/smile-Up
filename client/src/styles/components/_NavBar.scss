@@ -9,7 +9,8 @@
   .transparent {
     background-color: transparent;
   }
-  .collapse {
+  .collapse > ul {
     @include flexCol;
+    gap: 1rem;
   }
 }

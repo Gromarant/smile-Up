@@ -1,11 +1,14 @@
 import Avatar from '../../baseComponents/Avatar/Avatar';
-import Card from '../../baseComponents/Card/Card';
+import { BsPlusCircle, BsArrowUpCircleFill } from 'react-icons/bs';
+import ListCard from '../../baseComponents/ListCard/ListCard';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 const Home = () => {
   const [lists, setlists] = useState([]);
 
+  console.log(lists);
   useEffect(() => {
     axios.get('http://localhost:3001/lists')
       .then(response => {
@@ -20,11 +23,16 @@ const Home = () => {
   return (
     <>
       <Avatar className='userAvatar' /> 
-      <p>LuisR@gmail.com</p>
-      <span>Icon crear lista</span>
+      <p className='section_Name'>Mis listas</p>
+      <Link to={`/create`}>
+        <BsPlusCircle className='add_list_icon' />
+      </Link>
       <section className='userList_section'>
-        {lists && lists?.map(list => <Card content={{"name": `${list.name}`}} key={`cBcR${list.name}`} />)}
+        {lists && lists?.map(list => <ListCard content={{"name": `${list.name}`}} url={`/lists/${list.name}`} key={`cBcR${list.name}`} />)}
       </section>
+      {/* <Link to={`/`}>
+        <BsArrowUpCircleFill className='up_icon' />
+      </Link> */}
     </>
   )
 };

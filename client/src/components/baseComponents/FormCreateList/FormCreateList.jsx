@@ -14,15 +14,15 @@ const FormCreateList = ({setCardName}) => {
   
   const onSubmit = data => {
     axios.post('http://localhost:3001/lists', {
-      name: data.listName
-    })
-    .then(function (response) {
-      console.log(response);
-      setCardName(data.listName);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+            name: data.listName
+          })
+          .then(function (response) {
+            console.log(response);
+            setCardName(data.listName);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
   };
   
   const handleClick = () => {
@@ -39,7 +39,7 @@ const FormCreateList = ({setCardName}) => {
       <input type="text" placeholder="Nombre de la lista" {...register("listName", 
        { minLength: {
           value: 3, 
-          message: "debe tener un al menos 5 caracteres"
+          message: "debe tener un al menos 3 caracteres"
         }, 
         maxLength:{
           value: 50, 

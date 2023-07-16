@@ -1,0 +1,22 @@
+@import '../../utils/mixins.scss';
+
+.list_header {
+  width: 100%;
+
+  .list_name {
+    display: inline-block;
+    width: 100%;
+    padding: 1rem;
+    background-color: #f7f2fd;
+    padding: 0.4rem;
+    color: #8c8a8c;
+  }
+}
+
+.products_section {
+  @include flexWrap;
+  gap: 1rem;
+  width: 100%;
+  min-height: 16rem;
+  justify-content: center;
+}

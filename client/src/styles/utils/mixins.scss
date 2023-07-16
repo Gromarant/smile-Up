@@ -7,3 +7,26 @@
   display: flex;
   flex-wrap: wrap;
 }
+
+@mixin inputStyle {
+  min-width: 15rem;
+  width: 100%;
+  max-width: 25rem;
+  height: 2.6rem;
+  padding: 1rem;
+  border-radius: 0.2rem;
+  border: solid 0.02rem $gray-color;
+}
+
+@mixin cardStyle {
+  width: 100%;
+  padding: 0; 
+  background-color: transparent;
+}
+
+@mixin cardLayer {
+  border-radius: 0.2rem;
+  min-height: 9rem;
+  place-content: center;
+  color: $gray-color;
+}

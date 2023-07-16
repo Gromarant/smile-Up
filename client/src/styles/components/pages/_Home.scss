@@ -12,4 +12,17 @@ main {
     margin: auto;
     overflow-wrap: break-word;
   }
+
+  svg {
+    height: 2.4rem;
+    border: 0.01rem;
+    width: 6.4rem;
+  }
+  .add_list_icon {
+    color: $secondary-color;
+  }
+  
+  .up_icon {
+    color: $ligth-purple-color;
+  }
 }

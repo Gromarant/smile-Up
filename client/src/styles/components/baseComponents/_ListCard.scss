@@ -1,0 +1,12 @@
+@import '../../utils/variables.scss';
+
+.card {
+  @include cardStyle;
+  min-width: 15rem;
+  max-width: 15rem;
+  
+  .card_F_layer {
+    @include cardLayer;
+    background-color: $card-color;
+  }
+}

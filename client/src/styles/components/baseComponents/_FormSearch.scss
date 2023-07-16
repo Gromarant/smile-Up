@@ -1,14 +1,14 @@
 @import '../../utils/mixins.scss';
 @import '../../utils/variables.scss';
 
-.form_createList {
-  @include flexCol;
+.form_search {
+  display: flex;
   gap: 1rem;
 
   input {
     @include inputStyle;
   }
-  .action_btn {
+  .search_btn {
     width: 60%;
     margin: auto;
   }

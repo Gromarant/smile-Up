@@ -1,9 +1,13 @@
 //Basecomponents scss
 @import './components/baseComponents/Avatar';
 @import './components/baseComponents/FormCreateList';
+
 // @import './components/baseComponents/Modal';
-@import './components/baseComponents/Card';
 @import './components/baseComponents/Button';
+@import './components/baseComponents/FormSearch';
+@import './components/baseComponents/ListCard';
+@import './components/baseComponents/ProductSearchCard';
+@import './components/baseComponents/ProductListCard';
 
 //Components scss
 @import './components/Footer';
@@ -13,6 +17,8 @@
 //Components/pages scss
 @import './components/pages/Home';
 @import './components/pages/CreateList';
+@import './components/pages/Search';
+@import './components/pages/ListDetails';
 
 //general scss
 @import './views/App';
