@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Avatar from '../../baseComponents/Avatar/Avatar';
-import ListCard from '../../baseComponents/ListCard';
-import FormCreateList from '../../baseComponents/FormCreateList';
+import ListCard from '../../baseComponents/ListCard/ListCard';
+import FormCreateList from '../../baseComponents/FormCreateList/FormCreateList';
 
 const CreateList = () => {
   const [cardName, setCardName] = useState('Lista nueva');
