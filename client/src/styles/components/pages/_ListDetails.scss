@@ -49,9 +49,9 @@
       gap: 0.6rem;
       color: $gray-color;
     }
-    .action_btn {
-      margin: 0 1rem;
-      max-width: 18rem;
+    .searchList_button {
+      background-color: $secondary-color;
+      color: $light-font;
     }
     h3 {
       color: $gray-color;
@@ -67,6 +67,7 @@
     color: $gray-color;
   }
 
+
   @include tablet {
 
     .list_header {
@@ -77,7 +78,8 @@
       background-color: #f7f2fd;
       padding: 0.4rem;
       color: #8c8a8c;
-
+      gap: 1rem;
+        
       .edit_btn {
         height: 1.4rem;
         border: 0.01rem;
@@ -85,16 +87,19 @@
         text-align: center;
       }
 
+      .searchList_button {
+        background-color: $secondary-color;
+        color: $light-font;
+      }
+
       .delete_list {
         background-color: $danger-color;
-  
       }
 
       .list_content {
         @include flexCol;
         gap: 2rem;
         width: 100%;
-        padding: 1rem;
       }
     }
   }

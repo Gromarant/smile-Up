@@ -81,7 +81,7 @@ const ListDetails = () => {
             <BsPencil className='edit_btn' onClick={renderFormEdition}/>
           </div>
           <h3 className='list_name'>{name}</h3>
-          <Button text='Buscar Productos' onClick={goToEdit} />
+          <button className='searchList_button' onClick={goToEdit}>Buscar Productos</button>
         </section>
         {isInputRendered && <form className='EditList_form' onSubmit={handleSubmit}>
           <input onChange={handleChange} type='text' placeholder={name} value={listName}/>

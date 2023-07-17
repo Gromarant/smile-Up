@@ -31,7 +31,7 @@ const NavBar = () => {
         <Navbar.Brand>
           <Navbar.Toggle aria-label="toggle navigation" />
         </Navbar.Brand>
-          <img className='navBar_logo' src='../../../assets/logo_smail.webp' alt='Logo smile-Up' />
+          <img className='navBar_logo' src='../../../../public/assets/logo.png' alt='Logo smile-Up' />
         <Navbar.Content className='navBar_layer' hideIn="xs">
           {linksNavBar.map((item) => (
               <Link className='navBar_link' to={item.link} key={item.name} >{item.name}</Link>
