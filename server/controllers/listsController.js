@@ -21,6 +21,9 @@ const getLists = async(req,res) => {
     
     if (req.query.name) {
       list = await Lists.getListByName(req.query.name);
+      if (!list) {
+        throw new Error('Mensaje de error');
+      }
     }
     else {
       list = await Lists.getAllLists();
@@ -28,11 +31,20 @@ const getLists = async(req,res) => {
     res.status(200).json(list);
   }
   catch(error) {
+    if (error instanceof MissingResource) {
+      req.query.name
+    }
     res.status(400).json({
       msj: `${error}`
     });
   }
 };
+
+class MissingResource extends Error {
+  constructor(resourceName) {
+    this.message = `No se pudo conseguir el recurso:${resourceName}`;
+  }
+}
 
 
 /**
