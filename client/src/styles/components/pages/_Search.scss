@@ -1,7 +1,28 @@
 @import '../../utils/mixins.scss';
+@import '../../utils/variables.scss';
 
 main {
   margin-bottom: 0;
+
+  .list_selection {
+    @include flexWrap;
+    gap: 1rem;
+
+    .allProducts {
+      background-color: $purple-btn;
+    }
+    
+    .product_category {
+      background-color: $gray-btn;
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: $gray-color;
+      place-self: center;
+    }
+    
+  }
 
   .aside_plus_search {
     display: flex;
@@ -13,6 +34,17 @@ main {
       gap: 1.4rem;
       padding: 2rem;
       min-height: 25rem;
+      
+      // border-radius: 0.2rem;
+      // min-height: 9rem;
+      // place-content: center;
+      // color: #8C8A8C;
+      // height: 100%;
+
+      .saveList_btn {
+        background-color: $secondary-color;
+        color: $light-font;
+      }
     }
   
     .productsFound_section {

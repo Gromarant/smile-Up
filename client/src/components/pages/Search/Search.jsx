@@ -50,7 +50,28 @@ const Search = () => {
         .catch(function (error) {
           console.log(error);
         });
-    
+  }
+
+  const seachAllProducts = () => {
+
+    axios.get('http://localhost:3001/products')
+        .then((response) => {
+          setSearchresults(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+  }
+
+  const searchProductByCategory = (category) => {
+
+    axios.get(`http://localhost:3001/products?category=${category}`)
+        .then((response) => {
+          setSearchresults(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
   }
 
   return (
@@ -58,6 +79,14 @@ const Search = () => {
       <Avatar className='userAvatar' /> 
       <p className='section_Name'>Buscar</p>
       <FormSearch setSearchresults={setSearchresults}/>
+      <section className='list_selection'>
+        <p>Buscar:</p>
+        <button className='allProducts' onClick={seachAllProducts}>Todos los productos</button>
+        <button className='product_category' onClick={() => searchProductByCategory("men's clothing")}>{"men's clothing"}</button>
+        <button className='product_category' onClick={() => searchProductByCategory("jewelery")}>{"jewelery"}</button>
+        <button className='product_category' onClick={() => searchProductByCategory("electronics")}>{"electronics"}</button>
+        <button className='product_category' onClick={() => searchProductByCategory("women's clothing")}>{"women's clothing"}</button>
+      </section>
       <section className='aside_plus_search'>
         <aside className='aside_ListProducts'>
           <h3>Mis productos</h3>

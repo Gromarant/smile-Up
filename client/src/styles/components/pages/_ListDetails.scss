@@ -14,14 +14,8 @@
     color: #8c8a8c;
 
     .delete_list {
-      @include flexCol;
-      place-content: center;
-      color: #e27676;
-      background-color: #d6f4f3;
-      border-radius: 0.4rem;
-      width: 2.4rem;
-      height: 2.4rem;
-      padding: 0.4rem;
+      display: flex;
+      align-items: center;
     }
   }
 

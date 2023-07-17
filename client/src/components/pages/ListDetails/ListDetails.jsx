@@ -59,7 +59,16 @@ const ListDetails = () => {
 
   const goToEdit = () => navigate(`/lists/${name}/edit`);
 
-  const deleteList = () => {}
+  const deleteList = () => {
+
+    axios.delete(`http://localhost:3001/lists?name=${name}`)
+          .then(() => {
+            navigate('/');
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+  }
 
   return (
     <>
@@ -68,7 +77,7 @@ const ListDetails = () => {
       <section className='list_content'>
         <section className='list_header'>
           <div className='delete_List'>
-            <BsTrash3 />
+            <BsTrash3 onClick={deleteList}/>
           </div>
           <h2 className='list_name'>{name}</h2>
           <BsPencil className='edit_btn' onClick={renderFormEdition}/>
