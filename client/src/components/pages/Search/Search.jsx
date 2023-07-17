@@ -5,7 +5,7 @@ import Avatar from '../../baseComponents/Avatar/Avatar';
 import FormSearch from '../../baseComponents/FormSearch/FormSearch';
 import ProductSearchCard from '../../baseComponents/ProductSearchCard/ProductSearchCard';
 import ProductListCard from '../../baseComponents/ProductListCard/ProductListCard';
-import Button from '../../baseComponents/Button/Button';
+
 
 const Search = () => {
   const [listData, setListData] = useState([]);
@@ -37,19 +37,20 @@ const Search = () => {
     return inTheList;
   };
 
-  const saveList = (listData) => {
 
-      axios.put('http://localhost:3001/lists', {
-            name: name,
-            products: listData
-          })
-          .then((response) => {
-            console.log(response);
-            navigate(`/lists/${name}`);
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
+  const saveList = () => {
+
+    axios.put('http://localhost:3001/lists', {
+          name: name,
+          products: listData
+        })
+        .then(() => {
+          navigate(`/lists/${name}`);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    
   }
 
   return (
@@ -60,7 +61,7 @@ const Search = () => {
       <section className='aside_plus_search'>
         <aside className='aside_ListProducts'>
           <h3>Mis productos</h3>
-          <Button className='saveList_btn' onClick={saveList} text={'Guardar'} />
+          <button className='saveList_btn' onClick={saveList}>Guardar</button>
           {listData && listData?.map(result => <ProductListCard content={result} key={`cBcR${result.title}`}/>)}
         </aside>
 

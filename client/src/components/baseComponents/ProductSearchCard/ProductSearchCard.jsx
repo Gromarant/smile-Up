@@ -1,5 +1,5 @@
 import { Card as CardNextUi, Grid } from "@nextui-org/react";
-import { BsTrash3, BsHeartFill } from "react-icons/bs";
+import { BsTrash3, BsHeart } from "react-icons/bs";
 import PropTypes from 'prop-types';
 
 
@@ -22,7 +22,7 @@ const ProductSearchCard = ({content, isSelected=false, handleClick }) => {
             </Grid>
           </Grid.Container>
           <Grid.Container className='productSearch_info'>
-            {isSelected ? <BsTrash3 onClick={handleClick} /> : <BsHeartFill onClick={handleClick} />}
+            {isSelected ? <BsTrash3 onClick={handleClick} /> : <BsHeart onClick={handleClick} />}
             <p>{`€ ${content.price}`}</p>
           </Grid.Container>
         </CardNextUi>

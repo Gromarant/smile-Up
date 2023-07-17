@@ -9,12 +9,8 @@ const NavBar = () => {
       link: "/",
     },
     {
-      name: "Crear Listas",
+      name: "Crear Lista",
       link: "/create",
-    },
-    {
-      name: "Buscar",
-      link: "/search",
     }
   ];
 
@@ -24,12 +20,8 @@ const NavBar = () => {
       link: "/",
     },
     {
-      name: "Crear Listas",
+      name: "Crear Lista",
       link: "/create",
-    },
-    {
-      name: "Buscar",
-      link: "/search",
     }
   ];
 

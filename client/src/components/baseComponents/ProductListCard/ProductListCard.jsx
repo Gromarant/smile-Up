@@ -1,5 +1,4 @@
 import { Card as CardNextUi, Grid } from "@nextui-org/react";
-// import { BsFilePlus, BsFileMinus } from "react-icons/bs";
 import PropTypes from 'prop-types';
 
 const ProductListCard = ({content}) => {
@@ -30,6 +29,7 @@ const ProductListCard = ({content}) => {
 
 ProductListCard.propTypes = {
   content: PropTypes.object,
+  handleClick: PropTypes.func,
 }
 
 export default ProductListCard;

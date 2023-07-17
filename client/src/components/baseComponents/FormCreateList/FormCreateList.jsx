@@ -55,7 +55,7 @@ const FormCreateList = ({setCardName}) => {
 };
 
 FormCreateList.propTypes = {
-  setCardName: PropTypes.string,
+  setCardName: PropTypes.func,
 };
 
 export default FormCreateList;
