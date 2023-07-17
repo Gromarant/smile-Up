@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { BsPencil } from "react-icons/bs";
+import { BsPencil, BsTrash3 } from "react-icons/bs";
 import Avatar from '../../baseComponents/Avatar/Avatar';
 import ProductListCard from '../../baseComponents/ProductListCard/ProductListCard';
 import axios from 'axios';
@@ -59,12 +59,17 @@ const ListDetails = () => {
 
   const goToEdit = () => navigate(`/lists/${name}/edit`);
 
+  const deleteList = () => {}
+
   return (
     <>
       <Avatar className='userAvatar' /> 
       <p className='section_Name'>Detalles de lista:</p>
       <section className='list_content'>
         <section className='list_header'>
+          <div className='delete_List'>
+            <BsTrash3 />
+          </div>
           <h2 className='list_name'>{name}</h2>
           <BsPencil className='edit_btn' onClick={renderFormEdition}/>
           <button className='goToEdit_btn' onClick={goToEdit}>Buscar Productos</button>
