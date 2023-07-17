@@ -61,18 +61,13 @@ const createList = async (list) => {
 };
 
 
-const buildInsertProductsQuery = () => {
-    
-}
-
 //UPDATE
 const updateListName = async (list) => {
-  const { name, newName, products } = list;
+  const { name, newName } = list;
   let client, result;
 
   try {
-      client = await pool.connect();
-
+    client = await pool.connect();
     await client.query(queries.updateListName, [newName, name])
   } 
   catch (err) {
@@ -91,7 +86,7 @@ const updateListProducts = async (list) => {
   let client, result;
 
   try {
-      client = await pool.connect();
+    client = await pool.connect();
     await client.query(queries.deleteListProducts, [name])
       
       if(products.length) {
@@ -100,11 +95,10 @@ const updateListProducts = async (list) => {
                 // give the query a unique name
                 name: 'insert-product',
                 text: queries.insertNewProducts,
-                values: [name, product.title, product.product_quantity],
+                values: [name, product.title],
               }
             return client.query(insert_product)
         }))
-    
     }
   } 
   catch (err) {

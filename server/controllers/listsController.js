@@ -54,17 +54,19 @@ const updateList = async(req,res) => {
 
   try {
     const bodyData = req.body;
-    if (bodyData.name) {
-      if (bodyData.name && bodyData.newName) {
-        lists = await Lists.updateListName(bodyData);
-      }
-
-      res.status(200).json({
-        message: `Lista ${bodyData.name} actualizada`
-      });
+    
+    if (bodyData.newName) {
+      lists = await Lists.updateListName(bodyData);
     }
+    else if (bodyData.products) {
+      lists = await Lists.updateListProducts(bodyData);
+    }
+    res.status(200).json({
+      message: `Lista ${bodyData.name} actualizada`
+    });
   }
   catch(error) {
+    console.log('req.body.name', req.body.name);
     console.log(error),
     res.status(400).json({
       msj: `${error}`
@@ -78,7 +80,7 @@ const updateListProducts = async(req,res) => {
 
   try {
     const bodyData = req.body;
-    lists = await Lists.updateListProducts(bodyData);
+    
 
     res.status(200).json({
       message: `Lista actualizada`

@@ -1,6 +1,6 @@
 const queries = {
   getListByName: `
-  SELECT l.name, l.list_id,  p.product_id, p.title, p.price, p.description, p.category, p.image, lp.product_quantity
+  SELECT l.name, l.list_id,  p.product_id, p.title, p.price, p.description, p.category, p.image
   FROM lists as l
       INNER JOIN lists_products as lp
           ON lp.list_id = l.list_id
@@ -22,17 +22,17 @@ const queries = {
   `DELETE FROM lists_products
       WHERE list_id = (SELECT list_id FROM lists WHERE name ilike $1);`,
   insertNewProducts:`
-  INSERT INTO lists_products (list_id, product_id, product_quantity)
-    VALUES ((SELECT list_id FROM lists WHERE name ILIKE $1), (SELECT product_id FROM products WHERE title ILIKE $2), $3)`,
+  INSERT INTO lists_products (list_id, product_id)
+    VALUES ((SELECT list_id FROM lists WHERE name ILIKE $1), (SELECT product_id FROM products WHERE title ILIKE $2))`,
   updateListOld: `
   UPDATE lists
     SET name=$1
     WHERE name ilike $2;
   DELETE FROM lists_products
       WHERE list_id = (SELECT list_id FROM lists WHERE name ilike $3);
-  INSERT INTO lists_products (list_id, product_id, product_quantity)
+  INSERT INTO lists_products (list_id, product_id)
   VALUES ((SELECT list_id FROM lists WHERE name ilike $4),
-         (SELECT product_id FROM products WHERE title ilike $5), $6);`,
+         (SELECT product_id FROM products WHERE title ilike $5));`,
   deleteList: `
   DELETE FROM public.lists
 	WHERE name ILIKE $1`
