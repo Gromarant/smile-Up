@@ -18,8 +18,7 @@ CREATE TABLE products (
 
 CREATE TABLE lists_products (
   list_id int NOT NULL REFERENCES lists(list_id) ON DELETE CASCADE,
-  product_id int NOT NULL,
-  product_quantity int NOT NULL
+  product_id int NOT NULL
 );
 
 --add data
@@ -55,9 +54,9 @@ VALUES ('Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops', '109.95', 'Your
 ('DANVOUY Womens T Shirt Casual Cotton Short', 12.99, '95%Cotton,5%Spandex, Features: Casual, Short Sleeve, Letter Print,V-Neck,Fashion Tees, The fabric is soft and has some stretch., Occasion: Casual/Office/Beach/School/Home/Street. Season: Spring,Summer,Autumn,Winter.', 'women''s clothing', 'https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg');
 
 
-INSERT INTO Lists_products (list_id, product_id, product_quantity)
-  VALUES ('1', '3', '1'),
-  ('1', '1', '4'),
-  ('1', '4', '2'),
-  ('1', '16', '1'),
-  ('2', '20', '5');
+INSERT INTO Lists_products (list_id, product_id)
+  VALUES ('1', '3'),
+  ('1', '1'),
+  ('1', '4'),
+  ('1', '16'),
+  ('2', '20');
