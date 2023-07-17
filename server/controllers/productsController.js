@@ -1,7 +1,20 @@
+/**
+ * Controladores de API REST para productos
+ * @author Mariangelica Rodriguez <gromarant.com> 
+ * @namespace productsController    
+ */
 const Products = require('../models/productsModel')
 
-//GET PORT/products
-//GET PORT/products?id=idNumber
+
+/**
+ * Esta función busca las listas del usuario por nombre o todas al a vez
+ * @memberof productsController
+ * @method getProducts Http request GET
+ * @exports getProducts
+ * @async 
+ * @param {string} title de la lista
+ * @return {Object} Devuelve un array de objetos que corresponden a cada producto de la base de datos
+ */
 const getProducts = async (req, res) => {
  
   try {
@@ -23,9 +36,9 @@ const getProducts = async (req, res) => {
     res.status(400).json({
       msj: `ERROR: ${error}`
     });
-  }
-}
+  };
+};
 
 module.exports = {
   getProducts,
-}
+};

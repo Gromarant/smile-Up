@@ -5,6 +5,7 @@
  */
 const Lists = require('../models/listsModel');
 
+
 /**
  * Esta función busca las listas del usuario por nombre o todas al a vez
  * @memberof ListsController
@@ -63,13 +64,13 @@ const createList = async(req,res) => {
       lists = await res.status(400).json({
         message: (`Debe agregar un nombre para crear la lista`)
       });
-    }
+    };
   }
   catch(error) {
     res.status(400).json({
       msj: `${error}`
     });
-  }
+  };
 };
 
 
@@ -109,7 +110,7 @@ const updateList = async(req,res) => {
     res.status(400).json({
       msj: `${error}`
     });
-  }
+  };
 };
 
 
@@ -134,7 +135,7 @@ const deleteList = async(req,res) => {
     res.status(400).json({
       msj: `${error}`
     });
-  }
+  };
 };
 
 module.exports = {
@@ -142,4 +143,4 @@ module.exports = {
   createList,
   updateList,
   deleteList,
-}
+};
