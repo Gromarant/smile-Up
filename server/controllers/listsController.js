@@ -1,7 +1,19 @@
+/**
+ * Controladores de API REST para listas de deseos
+ * @author Mariangelica Rodriguez <gromarant.com> 
+ * @namespace ListsController    
+ */
 const Lists = require('../models/listsModel');
 
-//[GET] PORT/lists
-//[GET] PORT/lists?name=listName
+/**
+ * Esta función busca las listas del usuario por nombre o todas al a vez
+ * @memberof ListsController
+ * @method getLists Http request GET
+ * @exports getLists
+ * @async 
+ * @param {string} name de la lista
+ * @return {Object} Devuelve un array de objetos que corresponden a cada lista con sus productos
+ */
 const getLists = async(req,res) => {
   try {
     let list;
@@ -22,12 +34,25 @@ const getLists = async(req,res) => {
 };
 
 
-//[POST] PORT/lists
+/**
+ * Esta función crea una Lista nueva en base de datos PostgreSQL
+ * @memberof ListsController
+ * @method createList Http request POST
+ * @exports createList
+ * @async 
+ * @param {string} name de la lista
+ * @param {Object}  
+ * <pre>
+    {
+      name: "Nombre de la lista"
+    }
+  </pre>
+*/
 const createList = async(req,res) => {
   try {
     let lists;
-    
     const bodyData = req.body;
+    
     if (bodyData.name) {
       await Lists.createList(bodyData);
       lists = await res.status(201).json({
@@ -48,7 +73,21 @@ const createList = async(req,res) => {
 };
 
 
-//[PUT] PORT/lists
+/**
+ * Esta función actualiza una Lista en base de datos PostgreSQL
+ * @memberof ListsController
+ * @method updateList Http request PUT
+ * @exports updateList
+ * @async 
+ * @param {string} name de la lista
+ * @param {Object}  
+ * <pre>
+    {
+      name: currentname,
+      newName: newListName
+    }
+  </pre>
+*/
 const updateList = async(req,res) => {
   let lists;
 
@@ -66,7 +105,6 @@ const updateList = async(req,res) => {
     });
   }
   catch(error) {
-    console.log('req.body.name', req.body.name);
     console.log(error),
     res.status(400).json({
       msj: `${error}`
@@ -75,7 +113,15 @@ const updateList = async(req,res) => {
 };
 
 
-//[DELETE] PORT/lists
+/**
+ * Esta función borra una Lista en base de datos PostgrePostgreSQL
+ * @memberof ListsController
+ * @method deleteList Http request DELETE
+ * @exports deleteList
+ * @async 
+ * @param {string} name de la lista
+ * @param {String} name de la lista
+*/
 const deleteList = async(req,res) => {
   try {
     const listsData = req.query;
@@ -90,7 +136,6 @@ const deleteList = async(req,res) => {
     });
   }
 };
-
 
 module.exports = {
   getLists,
