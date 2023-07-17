@@ -4,12 +4,14 @@
 .productList_card {
   @include cardStyle;
   justify-content: space-between;
-  max-width: 10rem;
+  border-radius: 0.2rem;
   min-width: 10rem;
+  max-width: 10rem;   
   gap: 1rem;
   
   .productList_layer {
     @include cardLayer;
+    min-height: 16rem;
   }
 
   .productList_img {

@@ -1,46 +1,57 @@
 @import '../../utils/variables.scss';
 @import '../../utils/mixins.scss';
+@import '../../utils/media_queries';
 
 .productSearch_card {
   @include cardStyle;
-  min-width: 10rem;
-  max-width: 13rem;
+  min-width: 6rem;
+  max-width: 11rem;
   min-height: 15rem;
   max-height: 25rem;
-  padding: 1rem;
+  padding: 0.4rem;
   
   .productSearch_layer {
     @include cardLayer;
     height: 100%;
   }
-
+  
   .productSearch_img {
     width: fit-content;
     width: 60%;
     margin: auto;
     padding: 0.5rem;
   }
-
+  
   p {
     font-size: 1.2rem;
     width: 80%;
     margin: auto;
   }
-
+  
   .productSearch_info {
     background-color: $secondary-color;
     padding: 0.6rem;
-
+    
     p {
       color: $light-font;
     }
-     svg {
+    svg {
       color: $danger-color;
       background-color: #d6f4f3;
       border-radius: 0.4rem;
       width: 2.4rem;
       height: 2.4rem;
       padding: 0.4rem;
-     }
+    }
+  }
+
+  @include tablet {
+
+    @include cardStyle;
+    min-width: 16rem;
+    max-width: 13rem;
+    min-height: 15rem;
+    max-height: 25rem;
+    padding: 1rem;
   }
 }

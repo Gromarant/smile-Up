@@ -1,3 +1,4 @@
+@import '../../utils/media_queries';
 @import '../../utils/mixins.scss';
 @import '../../utils/variables.scss';
 
@@ -57,7 +58,6 @@
       color: $gray-color;
     }
   }
-  @import '../../utils/media_queries';
   .EditList_form {
     @include flexCol;
   }
@@ -67,6 +67,16 @@
     color: $gray-color;
   }
 
+  .products_section {
+    
+    @include flexCol;
+    flex-direction: column-reverse;
+    width: 100%;
+    background-color: #fbfaf8;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
 
   @include tablet {
 

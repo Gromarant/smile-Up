@@ -3,30 +3,46 @@
 
 main {
   margin-bottom: 0;
+ 
+  .form_search {
+    @include flexCol;
 
+    .action_btn {
+      width: 60%;
+      margin: auto;
+    }
+  }
   .list_selection {
     @include flexWrap;
-    gap: 1rem;
-
-    .allProducts {
-      background-color: $purple-btn;
-    }
-    
-    .product_category {
-      background-color: $gray-btn;
-    }
-
-    p {
-      font-size: 1.2rem;
-      color: $gray-color;
-      place-self: center;
-    }
-    
+    gap: 0.6rem;
+    place-content: center;
   }
 
-  .aside_plus_search {
-    display: flex;
+  .allProducts {
+    background-color: $purple-btn;
+    width: 8rem;
+  }
+  
+  .product_category {
+    background-color: $gray-btn;
+    width: 8rem;
+  }
+
+  p {
+    font-size: 1.2rem;
+    color: $gray-color;
+    place-self: center;
     width: 100%;
+  }
+    
+  .aside_plus_search {
+    @include flexCol;
+    flex-direction: column-reverse;
+    width: 100%;
+    background-color: #fbfaf8;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
   
     .aside_ListProducts {
       @include flexCol;
@@ -34,16 +50,18 @@ main {
       gap: 1.4rem;
       padding: 2rem;
       min-height: 25rem;
+      width: 100%;
       
-      // border-radius: 0.2rem;
-      // min-height: 9rem;
-      // place-content: center;
-      // color: #8C8A8C;
-      // height: 100%;
-
+      .user_list {
+        display: flex;
+        gap: 0.4rem;
+      }  
+  
       .saveList_btn {
         background-color: $secondary-color;
         color: $light-font;
+        width: 60%;
+        margin: 0 auto;
       }
     }
   
@@ -63,5 +81,13 @@ main {
       }
     }
   }
-}
 
+  @include tablet {
+
+    .aside_plus_search {
+      .result_products {
+        justify-content: center;
+      }
+    }
+  }
+}

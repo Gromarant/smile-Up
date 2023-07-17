@@ -91,7 +91,9 @@ const Search = () => {
         <aside className='aside_ListProducts'>
           <h3>Mis productos</h3>
           <button className='saveList_btn' onClick={saveList}>Guardar</button>
-          {listData && listData?.map(result => <ProductListCard content={result} key={`cBcR${result.title}`}/>)}
+          <section className='user_list'>
+            {listData && listData?.map(result => <ProductListCard content={result} key={`cBcR${result.title}`}/>)}
+          </section>
         </aside>
 
         {searchresults?.data && <section className='productsFound_section'>
