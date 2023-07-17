@@ -3,6 +3,7 @@ const Products = require('../models/productsModel')
 //GET PORT/products
 //GET PORT/products?id=idNumber
 const getProducts = async (req, res) => {
+ 
   try {
     let product;
 

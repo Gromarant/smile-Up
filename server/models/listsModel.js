@@ -46,7 +46,7 @@ const createList = async (list) => {
   let client, result;
 
   try {
-      client = await pool.connect(); // Espera a abrir conexion
+      client = await pool.connect();
       const data = await client.query(queries.createList, [name])
       result = data.rowCount
   } 
@@ -92,7 +92,7 @@ const updateListProducts = async (list) => {
       if(products.length) {
         await Promise.all(products.map(product => {
             const insert_product = {
-                // give the query a unique name
+                
                 name: 'insert-product',
                 text: queries.insertNewProducts,
                 values: [name, product.title],
@@ -113,11 +113,14 @@ const updateListProducts = async (list) => {
 
 
 // DELETE 
-const deleteList = async (list) => {
+const deleteListModel = async (list) => {
   const { name } = list;
   let client, result;
 
   try {
+
+    console.log('modelo-name', name);
+
       client = await pool.connect();
       const data = await client.query(queries.deleteList,[name])
       result = data.rowCount
@@ -139,7 +142,7 @@ const Lists = {
   createList,
   updateListName,
   updateListProducts,
-  deleteList
+  deleteListModel
 }
 
 module.exports = Lists;

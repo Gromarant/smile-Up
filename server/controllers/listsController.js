@@ -74,33 +74,15 @@ const updateList = async(req,res) => {
   }
 };
 
-//[PUT] PORT/lists
-const updateListProducts = async(req,res) => {
-  let lists;
-
-  try {
-    const bodyData = req.body;
-    
-
-    res.status(200).json({
-      message: `Lista actualizada`
-    });
-  }
-  catch(error) {
-    console.log(error),
-    res.status(400).json({
-      msj: `${error}`
-    });
-  }
-};
 
 //[DELETE] PORT/lists
 const deleteList = async(req,res) => {
-  
   try {
-    const listsData = req.body;
-    await Lists.deleteList(listsData);
-    res.status(200).json({message: `Se ha borrado ${listsData.name} `});
+    const listsData = req.query;
+    if (req.query.name) {
+      await Lists.deleteListModel(listsData);
+      res.status(200).json({message: `Se ha borrado ${listsData.name} `});
+    }
   }
   catch(error) {
     res.status(400).json({
@@ -114,6 +96,5 @@ module.exports = {
   getLists,
   createList,
   updateList,
-  updateListProducts,
   deleteList,
 }
