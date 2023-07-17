@@ -1,7 +1,7 @@
-import React from "react";
+import { Pagination as PaginationNext } from "@nextui-org/react";
 
 const Pagination = () => {
-  return <div>Pagination</div>;
+  return <PaginationNext total={20} initialPage={1} />;
 };
 
 export default Pagination;

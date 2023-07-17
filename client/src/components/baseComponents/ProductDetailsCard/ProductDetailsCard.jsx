@@ -1,40 +1,34 @@
-// import { Card as CardNextUi, Grid } from "@nextui-org/react";
-// import { BsTrash3, BsHeart } from "react-icons/bs";
-// import PropTypes from 'prop-types';
+import { Card as CardNextUi, Grid } from "@nextui-org/react";
+import PropTypes from 'prop-types';
 
 
-// const ProductDetailsCard = ({content, isSelected=false, handleClick }) => {
+const ProductDetailsCard = ({content}) => {
  
-//   return (
-//     <>
-//       <article className='productSearch_card'>
-//         <CardNextUi className='productSearch_layer'>
-//           { content.image &&
-//             <CardNextUi.Image className='productSearch_img'
-//               src={content.image}
-//               alt={content.title}
-//             /> }
-//           <Grid.Container>
-//             <Grid xs={12}>
-//               <p className='productSearch_title'>
-//                 {content.name ? content.name : content.title}
-//               </p>
-//             </Grid>
-//           </Grid.Container>
-//           <Grid.Container className='productSearch_info'>
-//             {isSelected ? <BsTrash3 onClick={handleClick} /> : <BsHeart onClick={handleClick} />}
-//             <p>{`€ ${content.price}`}</p>
-//           </Grid.Container>
-//         </CardNextUi>
-//       </article>
-//     </>
-//   );
-// };
+  return (
+    <article className='productSearch_card'>
+      <CardNextUi className='productSearch_layer'>
+        { content.image &&
+          <CardNextUi.Image className='productSearch_img'
+            src={content.image}
+            alt={content.title}
+          /> }
+        <Grid.Container>
+          <Grid xs={12}>
+            <p className='productSearch_title'>
+              {content.title && content.title}
+            </p>
+          </Grid>
+        </Grid.Container>
+        <Grid.Container className='productSearch_info'>
+          <p>{`€ ${content.price}`}</p>
+        </Grid.Container>
+      </CardNextUi>
+    </article>
+  );
+};
 
+ProductDetailsCard.propTypes = {
+  content: PropTypes.object
+}
 
-// ProductSearchCard.propTypes = {
-//   content: PropTypes.object,
-//   isSelected: PropTypes.bool,
-//   handleClick: PropTypes.func,
-// }
-// export default ProductDetailsCard;
+export default ProductDetailsCard;

@@ -76,12 +76,12 @@ const ListDetails = () => {
       <p className='section_Name'>Detalles de lista:</p>
       <section className='list_content'>
         <section className='list_header'>
-          <div className='delete_List'>
-            <BsTrash3 onClick={deleteList}/>
+          <div className='icons_List'>
+            <BsTrash3 className='delete_btn' onClick={deleteList}/>
+            <BsPencil className='edit_btn' onClick={renderFormEdition}/>
           </div>
-          <h2 className='list_name'>{name}</h2>
-          <BsPencil className='edit_btn' onClick={renderFormEdition}/>
-          <button className='goToEdit_btn' onClick={goToEdit}>Buscar Productos</button>
+          <h3 className='list_name'>{name}</h3>
+          <Button text='Buscar Productos' onClick={goToEdit} />
         </section>
         {isInputRendered && <form className='EditList_form' onSubmit={handleSubmit}>
           <input onChange={handleChange} type='text' placeholder={name} value={listName}/>

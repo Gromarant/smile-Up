@@ -2,58 +2,100 @@
 @import '../../utils/variables.scss';
 
 .list_content {
+  @include flexCol;
+  gap: 2rem;
   width: 100%;
 
-  .list_header {
-    display: flex;
-    place-content: center;
-    width: 100%;
-    padding: 1rem;
-    background-color: #f7f2fd;
-    padding: 0.4rem;
-    color: #8c8a8c;
-
-    .delete_list {
-      display: flex;
-      align-items: center;
-    }
-  }
-
   .EditList_form {
-    margin-top: 1rem;
+    @include flexCol;
+    background-color: #fbfaf8;
+    border-radius: 1.8rem;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    margin: auto;
+    gap: 1rem;
+    width: 80%;
+    min-width: fit-content;
+    max-width: 25rem;
   }
 
   .edit_btn {
     height: 1.4rem;
     border: 0.01rem;
     width: 4.8rem;
+    text-align: center;
   }
 
+  .action_btn {
+    width: 60%;
+    margin: auto;
+  }
+
+ .delete_btn {
+    height: 1.8rem;
+  }
+
+  .list_header {
+    @include flexCol;
+    justify-content: center;
+    align-items: center;
+    background-color: #f7f2fd;
+    padding: 1rem;
+
+    .icons_List {
+      display: flex;
+      place-content: center;
+      gap: 0.6rem;
+      color: $gray-color;
+    }
+    .action_btn {
+      margin: 0 1rem;
+      max-width: 18rem;
+    }
+    h3 {
+      color: $gray-color;
+    }
+  }
+  @import '../../utils/media_queries';
+  .EditList_form {
+    @include flexCol;
+  }
+  
   .danger_btn {
     border: solid 0.1rem $danger-color;
     color: $gray-color;
   }
-}
 
+  @include tablet {
 
+    .list_header {
+      flex-direction: row;
+      place-content: center;
+      width: 100%;
+      padding: 2rem;
+      background-color: #f7f2fd;
+      padding: 0.4rem;
+      color: #8c8a8c;
 
-.EditList_form {
-  display: flex;
-  place-content: center;
-  gap: 1rem;
+      .edit_btn {
+        height: 1.4rem;
+        border: 0.01rem;
+        width: 4.8rem;
+        text-align: center;
+      }
 
-  input {
-    @include inputStyle;
-    max-width: 15rem;
+      .delete_list {
+        background-color: $danger-color;
+  
+      }
+
+      .list_content {
+        @include flexCol;
+        gap: 2rem;
+        width: 100%;
+        padding: 1rem;
+      }
+    }
   }
-}
-
-
-
-.products_section {
-  @include flexWrap;
-  gap: 1rem;
-  width: 100%;
-  min-height: 16rem;
-  justify-content: center;
 }
