@@ -1,6 +1,4 @@
 require('dotenv').config();
-const swaggerUi = require('swagger-ui-express');
-const swaggerDocument = require('./swagger.json');
 const express = require('express');
 const app = express();
 const helmet = require('helmet');
@@ -19,8 +17,6 @@ app.use(helmet());
 
 app.use('/lists', listRoutes);
 app.use('/products', productsRoutes);
-
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 const server = app.listen(PORT, () => {
   console.log(`Servidor funcionando en el puerto ${PORT}`);
