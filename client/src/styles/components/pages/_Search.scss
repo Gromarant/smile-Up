@@ -44,6 +44,12 @@ main {
     align-items: center;
     gap: 1rem;
   
+    .productsFound_section {
+      .result_products {
+        @include flexWrap;
+        justify-content: center;
+      }
+    }
     .aside_ListProducts {
       @include flexCol;
       background-color: #dbd9d9;
@@ -53,7 +59,7 @@ main {
       width: 100%;
       
       .user_list {
-        display: flex;
+        @include flexWrap;
         gap: 0.4rem;
       }  
   
@@ -62,6 +68,7 @@ main {
         color: $light-font;
         width: 60%;
         margin: 0 auto;
+        min-width: fit-content;
       }
     }
   
@@ -86,7 +93,20 @@ main {
 
     .aside_plus_search {
       .result_products {
+        @include flexWrap;
         justify-content: center;
+      }
+
+      .aside_ListProducts  {
+
+        .saveList_btn {
+          
+          background-color: #2CA39F;
+          color: #FBFAF8;
+          width: 25%;
+          margin: 0 auto;
+          min-width: fit-content;
+        }
       }
     }
   }

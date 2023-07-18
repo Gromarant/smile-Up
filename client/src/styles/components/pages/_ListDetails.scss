@@ -67,10 +67,9 @@
     color: $gray-color;
   }
 
-  .products_section {
+  .listDetail_productsection {
     
-    @include flexCol;
-    flex-direction: column-reverse;
+    @include flexWrap;
     width: 100%;
     background-color: #fbfaf8;
     justify-content: center;
@@ -111,6 +110,11 @@
         gap: 2rem;
         width: 100%;
       }
+    }
+    .listDetail_productsection {
+      @include flexWrap;
+      gap: 1rem;
+      place-content: center;
     }
   }
 }

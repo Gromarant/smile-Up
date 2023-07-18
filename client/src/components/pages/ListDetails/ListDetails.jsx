@@ -90,7 +90,7 @@ const ListDetails = () => {
         </form>
         }
       </section>
-      <section className='products_section'>
+      <section className='listDetail_productsection'>
         {listData && listData.map(data => <ProductListCard content={data} key={`cBcR${data.title}`}/>)}
       </section>
     </>
