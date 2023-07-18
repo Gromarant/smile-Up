@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "generate-docs": "jsdoc -c /path/to/my/conf.js",
+    "generate-docs": "jsdoc -c ./jsdoc.json README.md",
     "test": "jest",
     "test:watch": "jest --watch"
   },
