@@ -22,10 +22,11 @@
     padding: 0.5rem;
   }
   
-  p {
+  p.productSearch_title {
     font-size: 1.2rem;
     width: 80%;
     margin: auto;
+    max-height: 5rem;
   }
   
   .productSearch_info {
@@ -53,5 +54,6 @@
     min-height: 15rem;
     max-height: 25rem;
     padding: 1rem;
+
   }
 }

@@ -90,8 +90,10 @@ const ListDetails = () => {
         </form>
         }
       </section>
-      <section className='listDetail_productsection'>
-        {listData && listData.map(data => <ProductListCard content={data} key={`cBcR${data.title}`}/>)}
+      <section className='DetailproductList_section'>
+        <section className='listDetail_productsection'>
+          {listData && listData.map(data => <ProductListCard content={data} key={`cBcR${data.title}`}/>)}
+        </section>
       </section>
     </>
   );

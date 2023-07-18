@@ -8,10 +8,12 @@
   min-width: 10rem;
   max-width: 10rem;   
   gap: 1rem;
+  height: 100%;
   
   .productList_layer {
     @include cardLayer;
-    min-height: 16rem;
+    min-height: 20rem;
+    max-height: 20rem;
   }
 
   .productList_img {
@@ -26,6 +28,9 @@
     line-height: 1.4rem;
     width: 80%;
     margin: auto;
+    padding: 0.8rem;
+    max-height: 5rem;
+    overflow: hidden;
   }
 
   .productList_description {

@@ -1,6 +1,8 @@
 @import '../utils/variables.scss';
 
 .navBar {
+  display: flex;
+  justify-content: space-between;
   background-color: $primary-color;
   width: 100vw;
 

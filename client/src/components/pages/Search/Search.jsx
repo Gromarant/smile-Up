@@ -98,7 +98,7 @@ const Search = () => {
 
         {searchresults?.data && <section className='productsFound_section'>
           <h3>Resultados de búsqueda</h3>
-          <div className='result_products'>
+          <section className='result_products'>
             {searchresults.data?.map(result => {
               const isSelected = isInTheList(result);
               const handleClick = isSelected ? removeFromList : addToList;
@@ -108,7 +108,7 @@ const Search = () => {
                 content={result}
                 key={`cBcR${result.title}`}/>
             })}
-          </div>
+          </section>
         </section>
         }
       </section>

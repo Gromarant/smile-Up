@@ -1,5 +1,6 @@
 @import '../../utils/mixins.scss';
 @import '../../utils/variables.scss';
+@import '../../utils/media_queries.scss';
 
 main {
   margin-bottom: 0;
@@ -60,7 +61,8 @@ main {
       
       .user_list {
         @include flexWrap;
-        gap: 0.4rem;
+        gap: 1.4rem;
+        justify-content: center;
       }  
   
       .saveList_btn {
@@ -98,14 +100,13 @@ main {
       }
 
       .aside_ListProducts  {
-
         .saveList_btn {
           
           background-color: #2CA39F;
           color: #FBFAF8;
-          width: 25%;
           margin: 0 auto;
           min-width: fit-content;
+          max-width: 20rem;
         }
       }
     }
